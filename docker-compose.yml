@@ -1,0 +1,11 @@
+services:
+  csv_processor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app  # Mount the current directory to /app in the container
+    command: python super_parser.py
+    working_dir: /app
+    environment:
+      - PYTHONUNBUFFERED=1
